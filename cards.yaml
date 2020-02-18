@@ -1,0 +1,91 @@
+---
+openapi: 3.0.2
+info:
+  title: cards
+  version: 1.0.0
+  description: cards
+paths:
+  /cards:
+    summary: Cards demo
+    description: Cards demo OCP
+    get:
+      responses:
+        "200":
+          $ref: '#/components/responses/cardResponse'
+components:
+  schemas:
+    card:
+      title: Root Type for card
+      description: card entity
+      type: object
+      properties:
+        aliasType:
+          type: string
+        alias:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        countryCode:
+          type: string
+        email:
+          type: string
+        identificationType:
+          type: string
+        identificationNumber:
+          type: string
+        consentDate:
+          format: date-time
+          type: string
+        dob:
+          format: date-time
+          type: string
+        permanentAliasType:
+          type: string
+        permanentAlias:
+          type: string
+        homeAddress:
+          type: object
+          properties:
+            line1:
+              type: string
+            line2:
+              type: string
+            line3:
+              type: string
+            postalCode:
+              type: string
+            city:
+              type: string
+            isoCountry3Char:
+              type: string
+      example:
+        aliasType: PHONE
+        alias: '51978521693  '
+        firstName: Rosa
+        lastName: Linda
+        countryCode: PER
+        email: rosaLinda@ymail.com
+        identificationType: 'DNI '
+        identificationNumber: "123456123456"
+        consentDate: 2019-05-17T13:02:02+00:00
+        dob: 2019-05-17T13:02:02+00:00
+        permanentAliasType: EMAIL
+        permanentAlias: rosaLinda@ymail.com
+        homeAddress:
+          line1: 7217 NW 2nd Ave
+          line2: ""
+          line3: ""
+          postalCode: "33150"
+          city: Miami
+          isoCountry3Char: PER
+  responses:
+    cardResponse:
+      content:
+        application/json:
+          examples:
+            cardResponse:
+              value:
+                id: bca4de18-0d84-4ab1-ac3d-c339f8e0be81
+      description: Card Response
